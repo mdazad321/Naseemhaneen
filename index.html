@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naseem Haneen For Dates | Madinah Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Naseem<span>Haneen</span></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#social">Social</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="cart-trigger" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+                <div class="hamburger" onclick="toggleMenu()">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Premium Madinah Dates</h1>
+            <p>Authentic quality delivered to Malaysia & Singapore.</p>
+            <a href="#shop" class="btn-gold">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="shop" class="shop">
+        <h2 class="section-title">Our Premium Selection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-card">
+    <div class="product-img-container">
+        <img src="images/ajwa.jpg" alt="Premium Ajwa" class="responsive-img">
+    </div>
+    <h3>Premium Ajwa</h3>
+    <p class="p-price">95.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <div class="product-img-container">
+        <img src="images/Belgiumpista.jpeg" alt="Premium Ajwa" class="responsive-img">
+    </div>
+    <h3>Belgium Chocolat Wafer Pistachio</h3>
+    <p class="p-price">110.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Belgium Pistachio Chocolat', 110, 1.0)">Add to Cart</button>
+</div>
+
+
+<div class="product-card">
+    <div class="product-img-container">
+        <img src="images/gofrik.jpeg" alt="Gofrik Milk Chocolat 24x24g" class="responsive-img">
+    </div>
+    <h3>Gofrik Wafer Milk Chocolat</h3>
+    <p class="p-price">80.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Gofrik Wafer Chocolat', 80, 1.0)">Add to Cart</button>
+</div>
+
+
+<div class="product-card">
+    <div class="product-img-container">
+        <img src="images/dimondtwist" alt="Dimond Twist" class="responsive-img">
+    </div>
+    <h3>DIMOND TWIST MILK CHOCOLAT 450g</h3>
+    <p class="p-price">60.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Dimond Twist 450', 60, 1.0)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <div class="product-img-container">
+        <img src="ajwa.jpg" alt="Premium Ajwa" class="responsive-img">
+    </div>
+    <h3>Premium Ajwa</h3>
+    <p class="p-price">95.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <div class="product-img-container">
+        <img src="images/sukkari.jpg" alt="Premium Ajwa" class="responsive-img">
+    </div>
+
+    <h3>Premium Ajwa</h3>
+    <p class="p-price">95.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
+</div>
+
+
+
+
+
+
+
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="images/sukkari.jpg" alt="Sukkari Dates">
+                </div>
+                <h3>Sukkari Al-Qassim</h3>
+                <p class="p-weight">Weight: 1.0 kg</p>
+                <p class="p-price">50.00 SAR</p>
+                <button class="add-btn" onclick="addToCart('Sukkari Al-Qassim', 50, 1.0)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="stuffed.jpg" alt="Stuffed Dates">
+                </div>
+                <h3>Stuffed Dates</h3>
+                <p class="p-weight">Weight: 1.0 kg</p>
+                <p class="p-price">75.00 SAR</p>
+                <button class="add-btn" onclick="addToCart('Stuffed Dates', 75, 1.0)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Fast shipping to Malaysia. The Ajwa is very soft and fresh!"</p>
+                <strong>- Faisal Z.</strong>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Best Sukkari I have had in Singapore. Highly recommend."</p>
+                <strong>- Linda H.</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="social">
+        <h2 class="section-title">Follow Us</h2>
+        <div class="social-links">
+            <a href="https://wa.me/966537379458" class="soc-btn whatsapp">WhatsApp</a>
+
+            <a href="https://www.instagram.com/nasa.eemhaneen?igsh=MWJmc21wMGgzM3A2OA%3D%3D&utm_source=qr" class="soc-btn instagram">Instagram</a>
+
+            <a href="#" class="soc-btn snapchat">Snapchat</a>
+
+            <a href="https://www.tiktok.com/@naseemhaneen?_r=1&_t=ZS-93nRYxrWx4q" class="soc-btn tiktok">TikTok</a>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>📍 Madinah, Saudi Arabia</p>
+            <p>📞 <a href="tel:+966537379458" style="color:white; text-decoration:none;">+966 53 737 9458</a></p>
+            <p>&copy; 2026 Naseem Haneen For Dates</p>
+<p>
+        Developed by 
+        <a style="color:white; "href="https://mdazad321.github.io/Profile_Cart/#" target="_blank" rel="noopener noreferrer">
+            Miskatul Azad
+        </a>
+    </p>
+        </div>
+    </footer>
+
+    <div id="cartSidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Your Cart</h3>
+            <span class="close-btn" onclick="toggleCart()">×</span>
+        </div>
+        <div class="shipping-select">
+            <label>Select Destination:</label>
+
+            <select id="shipZone" onchange="calcCart()">
+    <option value="none">--- Select ---</option>
+    <option value="KSA">Inside Saudi Arabia (1-9kg: 100 SAR)</option>
+    <option value="MY_S">Semenanjung Malaysia (20 SAR/kg)</option>
+    <option value="MY_E">Sabah & Sarawak (25 SAR/kg)</option>
+    <option value="SG">Singapore (Brackets)</option>
+</select>
+
+        </div>
+        <div id="cartContent" class="cart-items"></div>
+        <div class="cart-summary">
+            <p>Weight: <span id="tw">0</span> kg</p>
+            <p>Shipping: <span id="ts">0.00</span> SAR</p>
+            <hr>
+            <h3>Total: <span id="tt">0.00</span> SAR</h3>
+            <button class="checkout-btn" onclick="checkout()">Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
