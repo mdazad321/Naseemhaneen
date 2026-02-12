@@ -229,3 +229,24 @@ body { background: var(--bg); color: var(--dark); line-height: 1.6; }
     gap: 8px;
     flex-wrap: wrap;
 }
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 80px; /* Sits above the WhatsApp button */
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: var(--brown);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: none; /* Hidden by default */
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* Back to Top Button */
+
+
