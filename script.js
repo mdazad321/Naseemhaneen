@@ -209,3 +209,22 @@ function filterCategory(category) {
         }
     });
 }
+
+// Show/Hide "Back to Top" button based on scroll position
+window.onscroll = function() {
+    const btn = document.getElementById("backToTop");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+// Smooth scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
