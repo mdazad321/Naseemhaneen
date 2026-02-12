@@ -87,3 +87,125 @@ function checkout() {
 
     window.open(`https://wa.me/966537379458?text=${encodeURIComponent(text)}`);
 }
+
+function moveSlide(trackId, index) {
+    const track = document.getElementById(trackId);
+    const dots = track.parentElement.querySelectorAll('.dot');
+    
+    // Move the track based on index (0 = 0%, 1 = -100%, 2 = -200%)
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+
+// Function for Arrow Navigation
+function changeSlide(trackId, direction) {
+    const track = document.getElementById(trackId);
+    let currentIndex = parseInt(track.getAttribute('data-index')) || 0;
+    const totalSlides = track.querySelectorAll('.slider-img').length;
+    
+    let newIndex = currentIndex + direction;
+    
+    // Loop around
+    if (newIndex >= totalSlides) newIndex = 0;
+    if (newIndex < 0) newIndex = totalSlides - 1;
+    
+    moveSlide(trackId, newIndex);
+}
+
+// Core move function
+function moveSlide(trackId, index) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    
+    const dots = track.parentElement.querySelectorAll('.dot');
+    
+    track.setAttribute('data-index', index);
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-play logic
+function startAutoSliders() {
+    const allTracks = document.querySelectorAll('.slider-track');
+    
+    setInterval(() => {
+        allTracks.forEach(track => {
+            // Only auto-slide if the user isn't currently hovering/touching
+            if (!track.parentElement.matches(':hover')) {
+                let currentIndex = parseInt(track.getAttribute('data-index')) || 0;
+                let total = track.querySelectorAll('.slider-img').length;
+                let nextIdx = (currentIndex + 1) % total;
+                moveSlide(track.id, nextIdx);
+            }
+        });
+    }, 4000); // 4 seconds is better for reading multiple images
+}
+
+window.onload = startAutoSliders;
+
+function filterCategory(category) {
+    const cards = document.querySelectorAll('.product-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Update active button state
+    buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText.includes('All')));
+    });
+
+    // Show/Hide cards
+    cards.forEach(card => {
+        const itemCategory = card.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+function searchProducts() {
+    const input = document.getElementById('productSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+
+    cards.forEach(card => {
+        // Look at the title (h3) and the category attribute
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const category = card.getAttribute('data-category').toLowerCase();
+
+        if (title.includes(input) || category.includes(input)) {
+            card.style.display = "block";
+            card.style.opacity = "1";
+        } else {
+            card.style.display = "none";
+            card.style.opacity = "0";
+        }
+    });
+}
+
+// Ensure category filtering also clears the search bar for a better experience
+function filterCategory(category) {
+    document.getElementById('productSearch').value = ''; // Clear search when clicking category
+    const cards = document.querySelectorAll('.product-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText.includes('All')));
+    });
+
+    cards.forEach(card => {
+        const itemCategory = card.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
