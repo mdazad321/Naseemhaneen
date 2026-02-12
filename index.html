@@ -32,134 +32,318 @@
         </div>
     </section>
 
-    <section id="shop" class="shop">
-        <h2 class="section-title">Our Premium Selection</h2>
-        <div class="product-grid">
+  
+<section class="search-filter-area">
+    <div class="search-container">
+        <input type="text" id="productSearch" placeholder="Search for dates (e.g. Ajwa, Sukkari)..." onkeyup="searchProducts()">
+        <span class="search-icon">🔍</span>
+    </div>
 
-<!-- product listing-->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+        <button class="filter-btn" onclick="filterCategory('ajwa')">Ajwa</button>
 
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="ajwa.jpg" alt="Ajwa Dates">
-                </div>
-                <h3>Premium Ajwa</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">95.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
+        <button class="filter-btn" onclick="filterCategory('sukkari')">Sukkari</button>
+
+<button class="filter-btn" onclick="filterCategory('Medjool')">Medjool</button>
+
+        <button class="filter-btn" onclick="filterCategory('Coffee Mug')">Coffe Mug</button>
+
+<button class="filter-btn" onclick="filterCategory('Karak Tea')">Karak Tea</button>
+
+
+<button class="filter-btn" onclick="filterCategory('Chocolat')">Chocolat</button>
+
+<button class="filter-btn" onclick="filterCategory('Sejjada')">Sejjada Al Rawda</button>
+
+    </div>
+</section>
+
+
+<section id="shop" class="shop">
+    <div class="product-grid" id="productGrid">
+
+        
+  <div class="product-card" data-category="ajwa">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-ajwa', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-ajwa', 1)">&#10095;</button>
+                <div class="slider-track" id="track-ajwa" data-index="0">
+                    <img src="ajwa.jpg" class="slider-img">
+                    <img src="ajwa2.jpg" class="slider-img">
+
+<img src="ajwa3.jpg" class="slider-img">
             </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src=" Belgium.jpg" alt="Belgium Chocolat">
-                </div>
-                <h3>BELGIUM PISTACHIO CHOCOLAT WAFER</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">110.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Blgium Chocolat pistachio', 110, 1.0)">Add to Cart</button>
             </div>
-
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="gofrik.jpeg" alt="Gofrik box 24x24g">
-                </div>
-                <h3>GOFRIK PISTACHIO WAFER 24x24g</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">80.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Gofrik box 24x24g', 80, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="dimondtwist.jpeg" alt="Dimond twist Dubai ">
-                </div>
-                <h3>DIMOND TWIST DUBAI CHOCOLAT 450g</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">65.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Dimond Twist Dubai 450g', 65, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="ajwa.jpg" alt="Ajwa Dates">
-                </div>
-                <h3>Premium Ajwa</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">95.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="ajwa.jpg" alt="Ajwa Dates">
-                </div>
-                <h3>Premium Ajwa</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">95.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="ajwa.jpg" alt="Ajwa Dates">
-                </div>
-                <h3>Premium Ajwa</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">95.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-
-<div class="product-card">
-                <div class="product-img-box">
-                    <img src="ajwa.jpg" alt="Ajwa Dates">
-                </div>
-                <h3>Premium Ajwa</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">95.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
-            </div>
-
-<!-- This is a comment -->
-
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="sukkari.jpg" alt="Sukkari Dates">
-                </div>
-                <h3>Sukkari Al-Qassim</h3>
-                <p class="p-weight">1.0 kg</p>
-                <p class="p-price">50.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Sukkari Al-Qassim', 50, 1.0)">Add to Cart</button>
-            </div>
-<!-- This is a comment -->
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="stuffed.jpg" alt="Stuffed Dates">
-                </div>
-                <h3>Stuffed Dates Box</h3>
-                <p class="p-weight">0.5 kg</p>
-                <p class="p-price">75.00 SAR</p>
-                <button class="add-btn" onclick="addToCart('Stuffed Dates', 75, 0.5)">Add to Cart</button>
-            </div>
+     <h3>Premium Soft Ajwa 1kg</h3>
+            <p class="p-price">95.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium Ajwa', 95, 1.0)">Add to Cart</button>
         </div>
-    </section>
 
-<!-- customar reviews start -->
+<div class="product-card" data-category="Medjool">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Medjool', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Medjool', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Medjool" data-index="0">
+                    <img src="Medjool.jpg" class="slider-img">
+                    <img src="Medjool2.jpg" class="slider-img">
+
+<img src="Medjool3.jpg" class="slider-img">
+            </div>
+            </div>
+     <h3>Premium Soft Medjool Big 1kg</h3>
+            <p class="p-price">95.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium Big Medjool', 95, 1.0)">Add to Cart</button>
+        </div>
+
+
+
+
+ <div class="product-card" data-category="Karak Tea">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-karaktea', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-karaktea', 1)">&#10095;</button>
+                <div class="slider-track" id="track-karaktea" data-index="0">
+                    <img src="karaktea.jpeg" class="slider-img">
+                    <img src="karaktea2.jpeg" class="slider-img">
+
+<img src="karaktea3.jpeg" class="slider-img">
+            </div>
+            </div>
+     <h3>Karak Tea 1box 12x15g</h3>
+            <p class="p-price">45.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('karak Tea 12x15g 1 box', 45, 1.0)">Add to Cart</button>
+        </div>
+
+
+<div class="product-card" data-category="Coffee Mug">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-coffeemug', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-coffeemug', 1)">&#10095;</button>
+                <div class="slider-track" id="track-coffeemug" data-index="0">
+                    <img src="coffeemug.jpeg" class="slider-img">
+                    <img src="coffeemug2.jpeg" class="slider-img">
+
+<img src="coffeemug3.jpeg" class="slider-img">
+            </div>
+            </div>
+     <h3>Coffee Mug 1/2M </h3>
+            <p class="p-price">45.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Coffee Mug 1/2M 1pices', 45, 1.0)">Add to Cart</button>
+        </div>
+
+
+  <div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-siafadate', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-siafadate', 1)">&#10095;</button>
+                <div class="slider-track" id="track-siafadate" data-index="0">
+                    <img src="siafadate1.jpeg" class="slider-img">
+                    <img src="siafadate2.jpeg" class="slider-img">
+
+<img src="siafadate3.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Siafa Premium Chocolat Dates 1kg</h3>
+            <p class="p-price">80.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Siafa Premium Chocolat Dates', 80, 1.0)">Add to Cart</button>
+        </div>
+
+
+ <div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Tozeen', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Tozeen', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Tozeen" data-index="0">
+                    <img src="Tozeen.jpeg" class="slider-img">
+                    <img src="Tozeen2.jpeg" class="slider-img">
+
+<img src="Tozeen3.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Premium Dubai Chocolat Tozeen 200g</h3>
+            <p class="p-price">50.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium Dubai Chocolat Tozeen 200g', 50, 1.0)">Add to Cart</button>
+        </div>
+
+
+<div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Caramela', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Caramela', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Caramela" data-index="0">
+                    <img src="Caramela.jpeg" class="slider-img">
+                    <img src="Caramela2.jpeg" class="slider-img">
+
+<img src="Caramela3.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Premium Dubai Chocolat Caramela 1kg</h3>
+            <p class="p-price">70.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium Dubai Chocolat Caramela 1kg ', 70, 1.0)">Add to Cart</button>
+        </div>
+
+<div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-caramelabig', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-caramelabig', 1)">&#10095;</button>
+                <div class="slider-track" id="track-caramelabig" data-index="0">
+                    <img src="caramelabig.jpeg" class="slider-img">
+                    <img src="caramelabig1.jpeg" class="slider-img">
+
+<img src="caramelabig3.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Premium Dubai Chocolat Caramela 180g</h3>
+            <p class="p-price">30.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium Dubai Chocolat Caramela 180g ', 30, 1.0)">Add to Cart</button>
+        </div>
+
+
+
+
+
+ <div class="product-card" data-category="sukkari">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-sukkari', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-sukkari', 1)">&#10095;</button>
+                <div class="slider-track" id="track-sukkari" data-index="0">
+                    <img src="sukkari2.jpeg" class="slider-img">
+                    <img src="sukkari3.jpeg" class="slider-img">
+
+<img src="sukkari.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Premium Sukkari Dry 1kg</h3>
+            <p class="p-price">50.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Premium sukkari', 50, 1.0)">Add to Cart</button>
+        </div>
+
+
+
+
+
+
+  <div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Blegium', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Belgium', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Belgium" data-index="0">
+                    <img src="Belgium.jpeg" class="slider-img">
+ <img src="Belgium3.jpeg" class="slider-img">
+                    <img src="Belgium2.jpeg" class="slider-img">
+               </div>
+            </div>
+            <h3>Belgium Chocolat Wafer Pistachio 1kg</h3>
+            <p class="p-price">110.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Belgium Pistachio', 110, 1.0)">Add to Cart</button>
+        </div>
+
+
+<div class="product-card" data-category="Chocolat">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Belgiummix', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Belgiummix', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Belgiummix" data-index="0">
+                    <img src="Belgiummix1.jpeg" class="slider-img">
+                    <img src="Belgiummix2.jpeg" class="slider-img">
+
+<img src="Belgiummix3.jpeg" class="slider-img">
+
+                </div>
+            </div>
+            <h3>Belgium Chocolat Wafer Mix 1kg</h3>
+            <p class="p-price">110.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Belgium Chcolat wafer mix', 110, 1.0)">Add to Cart</button>
+        </div>
+
+
+
+
+
+<div class="product-card" data-category="Chocolat">
+    <div class="slider-container">
+        <button class="slider-arrow prev" onclick="changeSlide('track-gofrik', -1)">&#10094;</button>
+        <button class="slider-arrow next" onclick="changeSlide('track-gofrik', 1)">&#10095;</button>
+
+        <div class="slider-track" id="track-gofrik" data-index="0">
+            <img src="gofrik.jpeg" alt="gofrik 1" class="slider-img">
+
+            <img src="gofrik1.jpeg" alt="gofrik 2" class="slider-img">
+            <img src="gofrik3.jpeg" alt="gofrik 3" class="slider-img">
+
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="moveSlide('track-gofrik', 0)"></span>
+            <span class="dot" onclick="moveSlide('track-gofrik', 1)"></span>
+            <span class="dot" onclick="moveSlide('track-gofrik', 2)"></span>
+        </div>
+    </div>
+    <h3>Gofrik Wafer Chcolat 24x24g </h3>
+    <p class="p-price">80.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Gofrik Wafer 1box 24x24g ', 80, 1.0)">Add to Cart</button>
+</div>
+
+
+
+<div class="product-card" data-category="Chocolat">
+    <div class="slider-container">
+        <button class="slider-arrow prev" onclick="changeSlide('track-dimondtwist', -1)">&#10094;</button>
+        <button class="slider-arrow next" onclick="changeSlide('track-dimondtwist', 1)">&#10095;</button>
+
+        <div class="slider-track" id="track-dimondtwist" data-index="0">
+            <img src="dimondtwist.jpeg" alt="dimondtwist 1" class="slider-img">
+
+            <img src="dimondtwist3.jpeg" alt="dimondtwist 3" class="slider-img">
+            <img src="dimondtwist2.jpeg" alt="dimondtwist 2" class="slider-img">
+
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="moveSlide('track-dimondtwist', 0)"></span>
+            <span class="dot" onclick="moveSlide('track-dimondtwist', 1)"></span>
+            <span class="dot" onclick="moveSlide('track-dimondtwist', 2)"></span>
+        </div>
+    </div>
+    <h3>Dimond Twist Dubai Chocolat 450g</h3>
+    <p class="p-price">60.00 SAR</p>
+    <button class="add-btn" onclick="addToCart('Dimond Twist 450g ', 60, 1.0)">Add to Cart</button>
+
+  </div>
+
+  <div class="product-card" data-category="Sejjada">
+            <div class="slider-container">
+                <button class="slider-arrow prev" onclick="changeSlide('track-Sejjada', -1)">&#10094;</button>
+                <button class="slider-arrow next" onclick="changeSlide('track-Sejjada', 1)">&#10095;</button>
+                <div class="slider-track" id="track-Sejjada" data-index="0">
+                    <img src="Sejjada.jpg" class="slider-img">
+                    <img src="Sejjada2.jpg" class="slider-img">
+
+<img src="Sejjada3.jpg" class="slider-img">
+            </div>
+            </div>
+     <h3>Sejjada Prayer Mat Al Rawda 8mm(Original)</h3>
+            <p class="p-price">95.00 SAR</p>
+            <button class="add-btn" onclick="addToCart('Sejjada Prayer mat Al Rawda 8mm Original', 95, 1.0)">Add to Cart</button>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</section>
+
+
+
 
     <section id="reviews" class="reviews">
         <h2 class="section-title">Customer Reviews</h2>
@@ -179,8 +363,8 @@
 
 <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"The Sukkari is so fresh. Best service in Madinah."</p>
-                <strong>- mohammad S.</strong>
+                <p>"Belgium Pistachio sedap gila. Fast shipping to Malaysia."</p>
+                <strong>- Nur.</strong>
             </div>
 
 <div class="review-card">
