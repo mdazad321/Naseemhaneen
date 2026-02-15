@@ -18,10 +18,7 @@ function addToCart(name, price, weight) {
         cart.push({ name, price, weight, qty: 1 });
     }
     
-    // Update the UI (including the new floating count)
     renderCart();
-    
-    // Show a mini notification instead of popping up the cart
     showMiniToast(`${name} added to cart!`);
 }
 
@@ -38,7 +35,6 @@ function clearCart() {
     }
 }
 
-// UPGRADED RENDER CART: Updates both top nav and floating button
 function renderCart() {
     const container = document.getElementById('cartContent');
     const countLabel = document.getElementById('cart-count');
@@ -64,13 +60,8 @@ function renderCart() {
             </div>`;
     });
     
-    // Calculate total quantity for badges
     const totalQty = cart.reduce((a, b) => a + b.qty, 0);
-    
-    // Update the number in the header (if it exists)
     if (countLabel) countLabel.innerText = totalQty;
-    
-    // Update the number on the floating cart (if it exists)
     if (floatingCountLabel) floatingCountLabel.innerText = totalQty;
     
     calcCart();
@@ -108,13 +99,22 @@ function calcCart() {
     document.getElementById('tt').innerText = (subtotal + shipping).toFixed(2);
 }
 
+// --- FIXED CHECKOUT: Now mentions the specific destination ---
 function checkout() {
-    const zone = document.getElementById('shipZone');
+    const zoneSelect = document.getElementById('shipZone');
     if (cart.length === 0) return alert("Cart is empty!");
-    if (!zone || zone.value === "none") return alert("Select destination!");
+    if (!zoneSelect || zoneSelect.value === "none") return alert("Select destination!");
+
+    // This captures the exact name from the dropdown (e.g., "Saudi Arabia")
+    const destinationName = zoneSelect.options[zoneSelect.selectedIndex].text;
 
     let text = `*Order Naseem Haneen*\n`;
+    text += `📍 *Shipping To:* ${destinationName}\n\n`; // Mentions destination at the top
+    text += `*Items:*\n`;
+    
     cart.forEach(i => text += `- ${i.qty}x ${i.name}\n`);
+    
+    text += `\n*Details:*`;
     text += `\nWeight: ${document.getElementById('tw').innerText}kg`;
     text += `\nShipping: ${document.getElementById('ts').innerText} SAR`;
     text += `\n*Total: ${document.getElementById('tt').innerText} SAR*`;
@@ -126,11 +126,9 @@ function checkout() {
 function moveSlide(trackId, index) {
     const track = document.getElementById(trackId);
     if (!track) return;
-    
     const dots = track.parentElement.querySelectorAll('.dot');
     track.setAttribute('data-index', index);
     track.style.transform = `translateX(-${index * 100}%)`;
-    
     dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
@@ -139,14 +137,11 @@ function moveSlide(trackId, index) {
 function changeSlide(trackId, direction) {
     const track = document.getElementById(trackId);
     if (!track) return;
-    
     let currentIndex = parseInt(track.getAttribute('data-index')) || 0;
     const totalSlides = track.querySelectorAll('.slider-img').length;
     let newIndex = currentIndex + direction;
-    
     if (newIndex >= totalSlides) newIndex = 0;
     if (newIndex < 0) newIndex = totalSlides - 1;
-    
     moveSlide(trackId, newIndex);
 }
 
@@ -168,14 +163,11 @@ function startAutoSliders() {
 function filterCategory(category) {
     const searchInput = document.getElementById('productSearch');
     if (searchInput) searchInput.value = ''; 
-    
     const cards = document.querySelectorAll('.product-card');
     const buttons = document.querySelectorAll('.filter-btn');
-
     buttons.forEach(btn => {
         btn.classList.toggle('active', btn.innerText.toLowerCase().includes(category.toLowerCase()) || (category === 'all' && btn.innerText.includes('All')));
     });
-
     cards.forEach(card => {
         const itemCategory = card.getAttribute('data-category');
         if (category === 'all' || itemCategory === category) {
@@ -189,11 +181,9 @@ function filterCategory(category) {
 function searchProducts() {
     const input = document.getElementById('productSearch').value.toLowerCase();
     const cards = document.querySelectorAll('.product-card');
-
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText.toLowerCase();
         const category = (card.getAttribute('data-category') || "").toLowerCase();
-
         if (title.includes(input) || category.includes(input)) {
             card.style.display = "block";
             card.style.opacity = "1";
@@ -211,11 +201,9 @@ function applyAllDiscounts() {
         const oldPriceElement = card.querySelector('.old-price');
         const newPriceElement = card.querySelector('.new-price');
         const badge = card.querySelector('.sale-badge');
-
         if (oldPriceElement && newPriceElement && badge) {
             const oldPrice = parseFloat(oldPriceElement.innerText);
             const newPrice = parseFloat(newPriceElement.innerText);
-
             if (oldPrice > newPrice) {
                 const percentage = Math.round(((oldPrice - newPrice) / oldPrice) * 100);
                 badge.innerText = `${percentage}% OFF`;
@@ -232,7 +220,6 @@ function showMiniToast(message) {
     toast.className = 'mini-toast';
     toast.innerText = message;
     document.body.appendChild(toast);
-    
     setTimeout(() => {
         toast.classList.add('fade-out');
         setTimeout(() => toast.remove(), 500);
@@ -243,7 +230,6 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- Initialization ---
 window.onscroll = function() {
     const btn = document.getElementById("backToTop");
     if (btn) {
@@ -254,5 +240,5 @@ window.onscroll = function() {
 window.onload = () => {
     startAutoSliders();
     applyAllDiscounts();
-    renderCart(); // Call once at start to sync empty badges
+    renderCart(); 
 };
