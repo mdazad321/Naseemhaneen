@@ -67,6 +67,7 @@
         
   <div class="product-card" data-category="dates">
             <div class="slider-container">
+ <div class="sale-badge" id="discount-ajwa">Sale!</div>
                 <button class="slider-arrow prev" onclick="changeSlide('track-ajwa', -1)">&#10094;</button>
                 <button class="slider-arrow next" onclick="changeSlide('track-ajwa', 1)">&#10095;</button>
                 <div class="slider-track" id="track-ajwa" data-index="0">
@@ -77,12 +78,17 @@
             </div>
             </div>
      <h3>Premium Soft Ajwa 1kg</h3>
-            <p class="p-price">95.00 SAR</p>
+             <p class="p-price">
+        <span class="old-price" id="old-ajwa">120.00</span> SAR 
+        <span class="new-price" id="new-ajwa">95.00</span> SAR
+    </p>
             <button class="add-btn" onclick="addToCart('Premium Ajwa 1kg', 95, 1.0)">Add to Cart</button>
         </div>
 
 <div class="product-card" data-category="dates">
             <div class="slider-container">
+<div class="sale-badge" id="discount-ajwa">Sale!</div>
+                <button 
                 <button class="slider-arrow prev" onclick="changeSlide('track-Medjool', -1)">&#10094;</button>
                 <button class="slider-arrow next" onclick="changeSlide('track-Medjool', 1)">&#10095;</button>
                 <div class="slider-track" id="track-Medjool" data-index="0">
@@ -93,7 +99,10 @@
             </div>
             </div>
      <h3>Premium Soft Medjool Big 1kg</h3>
-            <p class="p-price">95.00 SAR</p>
+          <p class="p-price">
+        <span class="old-price" id="old-ajwa">120.00</span> SAR 
+        <span class="new-price" id="new-ajwa">95.00</span> SAR
+    </p>
             <button class="add-btn" onclick="addToCart('Premium Big Medjool 1kg', 95, 1.0)">Add to Cart</button>
         </div>
 
@@ -431,6 +440,12 @@
     </div>
 
     <script src="script.js"></script>
+
+<div class="floating-cart" onclick="toggleCart()">
+    <span class="f-icon">🛒</span>
+    <span id="floating-cart-count" class="f-count">0</span>
+</div>
+
     <button id="backToTop" onclick="scrollToTop()">↑</button>
 
 </body>
