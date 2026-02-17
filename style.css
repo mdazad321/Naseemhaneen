@@ -55,52 +55,8 @@ body { background: var(--bg); color: var(--dark); line-height: 1.6; }
     .sidebar { width: 100%; }
 
 
-/* --- FIXED RESPONSIVE FOOTER --- */
-.footer { 
-    background: var(--dark); 
-    color: #fff; 
-    text-align: center; 
-    padding: 60px 5% 30px; 
-    width: 100%;
-    margin-top: 40px;
+.footer { background: var(--dark); color: #fff; text-align: center; padding: 40px 5%; }
 }
-
-/* Container for Laptop/Tablet Grid */
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr; /* Default for Mobile */
-    gap: 30px;
-}
-
-/* Tablet & Laptop View (768px and up) */
-@media (min-width: 768px) {
-    .footer-content {
-        grid-template-columns: repeat(3, 1fr); /* 3 Columns on Laptop */
-        text-align: left; /* Professional alignment */
-    }
-}
-
-.footer-content p {
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-/* Ensure the developer link stays white */
-.footer-content a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-content a:hover {
-    color: var(--gold);
-}
-
-/* Remove the old footer block from inside your @media (max-width: 768px) 
-   so it doesn't conflict! */
-
 
 
 
