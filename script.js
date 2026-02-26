@@ -100,26 +100,49 @@ function calcCart() {
 }
 
 // --- FIXED CHECKOUT: Now mentions the specific destination ---
+
 function checkout() {
     const zoneSelect = document.getElementById('shipZone');
-    if (cart.length === 0) return alert("Cart is empty!");
-    if (!zoneSelect || zoneSelect.value === "none") return alert("Select destination!");
+    if (cart.length === 0) return alert("Your cart is empty!");
+    if (!zoneSelect || zoneSelect.value === "none") {
+        return alert("Please select a destination.");
+    }
 
-    // This captures the exact name from the dropdown (e.g., "Saudi Arabia")
-    const destinationName = zoneSelect.options[zoneSelect.selectedIndex].text;
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+    const city = document.getElementById('custCity').value.trim();
+    const postcode = document.getElementById('custPostcode').value.trim();
+
+    if (!name || !phone || !address || !city || !postcode) {
+        return alert("Please fill in all shipping details.");
+    }
+
+    const destination = zoneSelect.options[zoneSelect.selectedIndex].text;
+    const estimate = document.getElementById('deliveryEstimate').innerText;
 
     let text = `*Order Naseem Haneen*\n`;
-    text += `📍 *Shipping To:* ${destinationName}\n\n`; // Mentions destination at the top
-    text += `*Items:*\n`;
-    
-    cart.forEach(i => text += `- ${i.qty}x ${i.name}\n`);
-    
-    text += `\n*Details:*`;
-    text += `\nWeight: ${document.getElementById('tw').innerText}kg`;
-    text += `\nShipping: ${document.getElementById('ts').innerText} SAR`;
-    text += `\n*Total: ${document.getElementById('tt').innerText} SAR*`;
+    text += `📍 *Shipping To:* ${destination}\n`;
+    text += `🚚 *${estimate}*\n\n`;
 
-    window.open(`https://wa.me/966537379458?text=${encodeURIComponent(text)}`);
+    text += `*Customer Details:*\n`;
+    text += `👤 ${name}\n`;
+    text += `📞 ${phone}\n`;
+    text += `🏠 ${address}, ${city}, ${postcode}\n\n`;
+
+    text += `*Items:*\n`;
+    cart.forEach(i => {
+        text += `- ${i.qty} x ${i.name}\n`;
+    });
+
+    text += `\n*Summary:*\n`;
+    text += `Weight: ${document.getElementById('tw').innerText} kg\n`;
+    text += `Shipping: ${document.getElementById('ts').innerText} SAR\n`;
+    text += `*Total: ${document.getElementById('tt').innerText} SAR*`;
+
+    window.open(
+        `https://wa.me/966537379458?text=${encodeURIComponent(text)}`
+    );
 }
 
 // --- Slider Logic ---
@@ -242,3 +265,36 @@ window.onload = () => {
     applyAllDiscounts();
     renderCart(); 
 };
+
+function updateDeliveryEstimate() {
+    const zone = document.getElementById('shipZone').value;
+    const box = document.getElementById('deliveryEstimate');
+
+    let text = "Estimated Delivery: —";
+
+    if (zone === "KSA") text = "Estimated Delivery: 4 to 7 days (Inside Saudi Arabia)";
+    if (zone === "MY_S") text = "Estimated Delivery: 7 to 15 days (Semenanjung Malaysia)";
+    if (zone === "MY_E") text = "Estimated Delivery: 7 to 21 days (Sabah & Sarawak)";
+    if (zone === "SG") text = "Estimated Delivery: 5 to 7 days (Singapore)";
+
+    box.innerText = text;
+}
+
+function togglePolicy() {
+    document.getElementById("deliveryPolicyModal").classList.toggle("active");
+}
+
+function setPhonePrefix() {
+    const zone = document.getElementById('shipZone').value;
+    const phoneInput = document.getElementById('custPhone');
+
+    if (!phoneInput) return;
+
+    if (zone === "KSA") phoneInput.value = "+966 ";
+    if (zone === "MY_S" || zone === "MY_E") phoneInput.value = "+60 ";
+    if (zone === "SG") phoneInput.value = "+65 ";
+}
+
+function generateOrderId() {
+    return "NH" + Date.now().toString().slice(-6);
+}
