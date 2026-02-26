@@ -436,3 +436,196 @@ body { background: var(--bg); color: var(--dark); line-height: 1.6; }
         display: none;
     }
 }
+
+/* SHIPPING FORM */
+.shipping-select {
+    margin: 15px 0 8px;
+    font-weight: 600;
+    color: var(--brown);
+}
+
+.shipping-select select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 6px;
+    font-size: 15px;
+}
+
+.shipping-form {
+    background: #fffaf5;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 12px;
+}
+
+.shipping-form h4 {
+    font-size: 16px;
+    color: var(--brown);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.shipping-form input,
+.shipping-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.shipping-form input:focus,
+.shipping-form textarea:focus,
+.shipping-select select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.delivery-estimate {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #733b11;
+    text-align: center;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: var(--brown);
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    text-align: left;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 6px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* FIX: Make cart items always visible and scrollable */
+.cart-items {
+    flex: 1;
+    min-height: 120px;
+    max-height: 40vh;
+    overflow-y: auto;
+    padding-right: 6px;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+}
+/* FIX: Make sidebar fully scrollable on mobile and small screens */
+.sidebar {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+/* Ensure cart summary (WhatsApp button) is always reachable */
+.cart-summary {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+}
+
+/* Improve mobile height handling */
+@media (max-height: 700px) {
+    .sidebar {
+        padding-bottom: 120px; /* space for buttons */
+    }
+}
+
+/* Better scrolling for cart items on mobile */
+.cart-items {
+    max-height: 35vh;
+    overflow-y: auto;
+}
+/* Collapsible Shipping Form */
+.shipping-form-wrapper {
+    margin-bottom: 10px;
+}
+
+.shipping-toggle {
+    width: 100%;
+    background: #f3f3f3;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Mobile: collapsed by default */
+@media (max-width: 768px) {
+    #shippingForm {
+        display: none;
+    }
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.sidebar {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.cart-items {
+    max-height: 35vh;
+    overflow-y: auto;
+}
+
+.cart-summary {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding-bottom: 12px;
+}
